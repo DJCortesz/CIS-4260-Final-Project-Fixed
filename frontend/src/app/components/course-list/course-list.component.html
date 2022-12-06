@@ -1,0 +1,78 @@
+<div class="main-content">
+  <div class="section-content section-content-p30">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="coursesTable">
+          <table border="1">
+            <thead>
+              <th>No.</th>
+              <th>Title</th>
+            </thead>
+            <tbody>
+              <tr *ngFor="let c of courses">
+                <td>
+                  <a
+                    [routerLink]="[
+                      '',
+                      { outlets: { courseDetails: ['courses', c.id] } }
+                    ]"
+                  >
+                    {{ c.number }}
+                  </a>
+                </td>
+                <td>{{ c.title }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- END OF COURSE LOOPS-->
+
+        <!-- if products is empty then display a message -->
+        <div
+          *ngIf="courses?.length == 0"
+          class="alert alert-warning col-md-12"
+          role="alert"
+        >
+          No courses found
+        </div>
+        <!-- End of no courses found error message -->
+      </div>
+      <!-- begin footer -->
+      <div class="footer-pagination">
+        <div class="row">
+          <div class="col-md-6"></div>
+          <div class="col-md-6">
+            <div class="row">
+              <!-- Pagination Buttons -->
+              <div class="col-md-6">
+                <ngb-pagination
+                  [(page)]="thePageNumber"
+                  [pageSize]="thePageSize"
+                  [collectionSize]="theTotalElements"
+                  (pageChange)="listCourses()"
+                  [maxSize]="3"
+                  [boundaryLinks]="true"
+                >
+                </ngb-pagination>
+              </div>
+              <!-- End of Pagination Buttons -->
+
+              <!-- Page Size Buttons -->
+              <div class="col-md-3 mt-2" style="text-align: right">
+                <span class="mr-2">Page Size</span>
+                <select (change)="updatePageSize($any($event.target).value)">
+                  <option>5</option>
+                  <option selected="true">15</option>
+                  <option>20</option>
+                  <option>50</option>
+                </select>
+              </div>
+              <!-- End of Page Size Buttons -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- end footer -->
+    </div>
+  </div>
+</div>

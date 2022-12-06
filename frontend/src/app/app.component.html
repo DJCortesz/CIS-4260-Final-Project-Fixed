@@ -1,0 +1,80 @@
+<div class="page-wrapper">
+  <!-- MENU SIDEBAR -->
+  <aside class="menu-sidebar d-none d-lg-block">
+    <div class="logo">
+      <a href="#">
+        <img src="assets/cpp-logo.jpg" alt="luv2shop" class="img-responsive" />
+      </a>
+    </div>
+    <app-department-menu></app-department-menu>
+  </aside>
+  <!-- END MENU SIDEBAR -->
+
+  <!--PAGE CONTAINER-->
+  <div class="page-container">
+    <!--HEADER DESKTOP-->
+    <header class="header-desktop">
+      <div class="section-content section-content-p30">
+        <div class="container-fluid">
+          <div class="header-wrap">
+            <app-search></app-search>
+            <!-- <div class="cart-area d-n">
+              <a href="shopping-detail.html">
+                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+              </a>
+            </div> -->
+          </div>
+          <div class="account-wrap"></div>
+        </div>
+      </div>
+    </header>
+    <!--END HEADER DESKTOP-->
+
+    <!--MAIN CONTENT-->
+    <!-- <app-course-list></app-course-list> -->
+    <router-outlet></router-outlet>
+  </div>
+
+  <!-- Course Detail Sidebar -->
+  <aside class="menu-sidebar-course-details">
+    <nav class="navbar-sidebar">
+      <h3>Course Details</h3>
+      <router-outlet name="courseDetails"></router-outlet>
+    </nav>
+  </aside>
+  <!-- End of Course Detail Sidebar -->
+
+  <!-- Section Detail Sidebar -->
+
+  <aside class="menu-sidebar-section">
+    <nav class="navbar-sidebar">
+      <div class="sectionGrid">
+        <h3>Section Details</h3>
+        <label for="section">Section</label>
+        <select formControlName="section">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+        </select>
+
+        <label for="year">Year </label>
+        <select formControlName="year">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+        </select>
+
+        <label for="semester">Semester </label>
+        <select formControlName="semester">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+        </select>
+        <app-section-menu></app-section-menu>
+        <!-- <router-outlet name="sectionDetails"></router-outlet> -->
+      </div>
+    </nav>
+  </aside>
+  <!-- End of Section Detail Sidebar -->
+</div>
+<!--END PAGE CONTAINER-->

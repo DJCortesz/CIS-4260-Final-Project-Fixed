@@ -1,0 +1,45 @@
+table {
+  width: 83%;
+  border-collapse: separate;
+  border-radius: 5px;
+}
+
+table,
+th,
+td {
+  border: 1px ridge black;
+}
+
+th,
+td {
+  padding-left: 5px;
+}
+
+.main-content {
+  padding-top: 116px;
+  padding-left: 275px;
+  min-height: 100vh;
+}
+
+.col-md-6 {
+  padding-top: 10px;
+  margin-left: 15px;
+}
+
+.mr-2 {
+  padding-right: 5px;
+}
+
+.col-md-3.mt-2 {
+  padding-top: 10px;
+}
+
+.alert.alert-warning.col-md-12 {
+  margin-top: 40px;
+  margin-left: 5px;
+  width: 40%;
+}
+
+.coursesTable {
+  width: 50%;
+}

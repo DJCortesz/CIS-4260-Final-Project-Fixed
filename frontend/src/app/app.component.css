@@ -1,12 +1,13 @@
 .menu-sidebar-course-details {
   width: 500px;
-  height: 46%;
+  height: 45%;
   position: fixed;
   right: 0;
   top: 0;
   margin-right: 0px;
   background: #fff;
-  overflow-y: auto;
+  overflow: auto;
+  z-index: 99999999;
 }
 
 .menu-sidebar-section {

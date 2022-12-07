@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CourseService } from 'src/app/services/course.service';
 import { Course } from 'src/app/common/course';
+import { Department } from 'src/app/common/department';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -21,6 +22,7 @@ export class CourseListComponent implements OnInit {
   theTotalElements: number = 0;
 
   course: Course = new Course();
+  department: Department = new Department();
   previousKeyword: string;
   // dependency injection for CourseService to get the Observable for Course array
   constructor(
@@ -45,6 +47,7 @@ export class CourseListComponent implements OnInit {
     else {  // not search 
       this.handleListCourses();
     }
+    this.handleGetDepartment();
   }
 
   // use keyword to search via REST API, and set values to the Course array, courses 
@@ -95,6 +98,12 @@ export class CourseListComponent implements OnInit {
       this.currentDepartmentId).subscribe(this.processResult());
   }  // end of handleListCourses() 
 
+  handleGetDepartment(){
+    this.courseService.getDepartment(this.currentDepartmentId).subscribe(
+      data => { this.department = data; }
+    );
+  }
+
   private processResult() {
     return (data: any) => {
       this.courses = data._embedded.courses;
@@ -109,5 +118,4 @@ export class CourseListComponent implements OnInit {
     this.thePageNumber = 1;
     this.handleListCourses(); // redisplay courses 
   }
-
 } // end of CourseListComponent

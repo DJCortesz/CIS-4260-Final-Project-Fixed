@@ -28,9 +28,19 @@ h3 {
 }
 
 label {
-  margin-right: 10px;
+  margin-right: 5px;
 }
 
 select {
-  margin-right: 15px;
+  margin-right: 10px;
+}
+
+#add-button {
+  float: right;
+  min-width: 50px;
+  color: #fff;
+  border: 1px solid #205b8d;
+  border-radius: 25px;
+  background: #205b8d;
+  margin: 0;
 }

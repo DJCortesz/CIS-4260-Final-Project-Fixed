@@ -13,6 +13,8 @@ export class CourseDetailComponent implements OnInit {
 
   // this property will be available in product-detail.component.html  
   course: Course = new Course();
+  departmentId: number;
+  department: Department = new Department();
 
   // inject ActiveRoute object to access route parameters from the current active route  
   constructor(private courseService: CourseService,
@@ -30,11 +32,18 @@ export class CourseDetailComponent implements OnInit {
     // “+” convert the string value to a number  
     // get()! tells the compiler that the returned value of the get() is not null 
     const currentCourseId: number = +this.route.snapshot.paramMap.get('id')!;
-
+    console.log(currentCourseId);
     // get product for current product id, getProduct() is defined in product service 
     this.courseService.getCourse(currentCourseId).subscribe(
       data => { this.course = data; }
     );
+    this.courseService.getDepartmentByCourse(currentCourseId).subscribe(
+      data => { this.department = data; }
+    );
+  }
+
+  parseDepartmentId(url: string){
+
   }
 
 } // end of ProductDetailComponent 

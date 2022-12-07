@@ -31,6 +31,11 @@ export class CourseService {
     return this.httpClient.get<Department>(departmentUrl);
   }
 
+  getDepartmentByCourse(courseId: number): Observable<Department>{
+    const newCourseUrl = `${this.baseUrl}/${courseId}/department`;
+    return this.httpClient.get<Department>(newCourseUrl);
+  }
+
   // This method, with two more parameters, gets courses with pagination 
   getCourseListPaginate(
     thePage: number,

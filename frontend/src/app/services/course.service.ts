@@ -64,7 +64,7 @@ export class CourseService {
     thePageSize: number,
     theKeyword: string): Observable<GetResponseCourses> {
     const searchUrl =
-      `${this.baseUrl}/search/findByTitleContaining?title=${theKeyword}&page=${thePage}&size=${thePageSize}`;
+      `${this.baseUrl}/search/findByNumberContainingOrTitleContaining?number=${theKeyword}&title=${theKeyword}&page=${thePage}&size=${thePageSize}`;
 
     return this.httpClient.get<GetResponseCourses>(searchUrl);
   } // end of searchCoursesPaginate() 

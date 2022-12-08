@@ -14,5 +14,5 @@ public interface CourseRepository extends JpaRepository<Course, Long> {
     @RequestParam binds a web request parameter to a method parameter. */
     Page<Course> findByDepartmentId(@RequestParam("id") Long id, Pageable pageable);
 
-    Page<Course> findByTitleContaining(@RequestParam("title") String title, Pageable pageable);
+    Page<Course> findByNumberContainingOrTitleContaining(@RequestParam("number") String number, @RequestParam("title") String title, Pageable pageable);
 }

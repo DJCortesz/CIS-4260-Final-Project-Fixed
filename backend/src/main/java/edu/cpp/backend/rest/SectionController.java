@@ -36,7 +36,7 @@ public class SectionController {
 
     // delete a Section record by course id and section number
     @DeleteMapping
-    public void deleteSection(@RequestParam("number") Long number){
-        sectionRepository.deleteById(number);
+    public void deleteSection(@RequestParam("id") Long id){
+        sectionRepository.deleteById(id);
     }
 }

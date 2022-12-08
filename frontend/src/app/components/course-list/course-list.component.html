@@ -14,7 +14,7 @@
                 <td>
                   <a [routerLink]="[
                       '',
-                      { outlets: { courseDetails: ['courses', c.id], sectionDetails: ['section'] } }
+                      { outlets: { courseDetails: ['courses', c.id], sectionDetails: ['section', c.id] } }
                     ]">
                     {{ c.number }}
                   </a>

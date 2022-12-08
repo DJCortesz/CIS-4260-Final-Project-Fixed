@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
 export class SectionMenuComponent implements OnInit {
   section: Section = new Section();
   sections: Section[];
+  currentCourseId: number;
 
   constructor(private courseService: CourseService,
     private sectionService: SectionService,
@@ -20,10 +21,11 @@ export class SectionMenuComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit(): void {
+    this.currentCourseId = +this.route.snapshot.paramMap.get('id')!;
+    console.log(+this.route.snapshot.paramMap.get('id')!);
     this.route.paramMap.subscribe(
       () => { this.listCourseSections(); }
     );
-    console.log(this.sections[0]);
   }
 
   addSection() {
@@ -31,16 +33,18 @@ export class SectionMenuComponent implements OnInit {
     const year: number = parseInt((<HTMLSelectElement>document.getElementById('year')).value);
     const semester: string = (<HTMLSelectElement>document.getElementById('semester')).value;
     this.sectionService.addSection(sectionNumber, year, semester, 1);
-    console.log(sectionNumber + ", " + year + ", " + semester + ", ");
+    console.log(sectionNumber + ", " + year + ", " + semester + ", " + this.currentCourseId);
+    window.location.reload();
   }
 
-  deleteSection(section: number) {
-    this.sectionService.deleteSection(section);
+  deleteSection(id: number) {
+    this.sectionService.deleteSection(id);
+    window.location.reload();
   }
 
   listCourseSections() {
-    this.sectionService.getSections().subscribe(
-      data => {
+    this.sectionService.getSections(this.currentCourseId).subscribe(
+      (data) => {
         console.log('Current Sections =' + JSON.stringify(data)); // write JSON data to console 
         this.sections = data;
       });

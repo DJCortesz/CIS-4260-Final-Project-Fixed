@@ -32,7 +32,7 @@ export class CourseDetailComponent implements OnInit {
     // “+” convert the string value to a number  
     // get()! tells the compiler that the returned value of the get() is not null 
     const currentCourseId: number = +this.route.snapshot.paramMap.get('id')!;
-    console.log(currentCourseId);
+    //console.log(currentCourseId);
     // get product for current product id, getProduct() is defined in product service 
     this.courseService.getCourse(currentCourseId).subscribe(
       data => { this.course = data; }

@@ -12,7 +12,7 @@ import { SectionMenuComponent } from './components/section-menu/section-menu.com
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 const routes: Routes = [
-  { path: 'section', component: SectionMenuComponent, outlet: 'sectionDetails' },
+  { path: 'section/:id', component: SectionMenuComponent, outlet: 'sectionDetails' },
   { path: 'courses/:id', component: SectionMenuComponent },
   { path: 'courses/:id', component: CourseDetailComponent, outlet: 'courseDetails' },
   { path: 'search/:keyword', component: CourseListComponent },

@@ -21,17 +21,16 @@ export class SectionService {
   }
 
   deleteSection(section: number) {
-    const newDeleteUrl = `http://localhost:8080/sections?number=${section}`;
+    const newDeleteUrl = `http://localhost:8080/sections?id=${section}`;
     this.httpClient.delete(newDeleteUrl).subscribe((data) => {
       console.log("Successfully deleted a section.")
     });
   }
 
-  getSections(): Observable<Section[]> {
-    console.log(this.httpClient.get<GetResponseCourseSections>(this.currentSectionsUrl).pipe(
-      map(response => response._embedded.sections)));
-    return this.httpClient.get<GetResponseCourseSections>(this.currentSectionsUrl).pipe(
-      map(response => response._embedded.sections));
+  getSections(courseId: number): Observable<Section[]> {
+    console.log(this.currentSectionsUrl + "/search/findByCourseId?courseId=1");
+    return this.httpClient.get<GetResponseCourseSections>(this.currentSectionsUrl + "/search/findByCourseId?courseId=1").pipe(
+      map(response => response._embedded.section));
   }
 
   getSectionId() {
@@ -49,6 +48,6 @@ interface getSectionIds {
 }
 interface GetResponseCourseSections {
   _embedded: {
-    sections: Section[];
+    section: Section[];
   }
 }

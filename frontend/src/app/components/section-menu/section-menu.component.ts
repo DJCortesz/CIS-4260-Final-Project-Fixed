@@ -3,7 +3,7 @@ import { CourseService } from 'src/app/services/course.service';
 import { ActivatedRoute } from '@angular/router';
 import { Section } from 'src/app/common/section';
 import { SectionService } from 'src/app/services/section.service';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-section-menu',
@@ -16,23 +16,25 @@ export class SectionMenuComponent implements OnInit {
 
   constructor(private courseService: CourseService,
     private sectionService: SectionService,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(
       () => { this.listCourseSections(); }
     );
+    console.log(this.sections[0]);
   }
 
   addSection() {
-    const section: number = parseInt((<HTMLSelectElement>document.getElementById('section')).value);
+    const sectionNumber: number = parseInt((<HTMLSelectElement>document.getElementById('section')).value);
     const year: number = parseInt((<HTMLSelectElement>document.getElementById('year')).value);
     const semester: string = (<HTMLSelectElement>document.getElementById('semester')).value;
-    this.sectionService.addSection(section, year, semester, 1);
-    console.log(section + ", " + year + ", " + semester + ", ");
+    this.sectionService.addSection(sectionNumber, year, semester, 1);
+    console.log(sectionNumber + ", " + year + ", " + semester + ", ");
   }
 
-  deleteSection(section: number){
+  deleteSection(section: number) {
     this.sectionService.deleteSection(section);
   }
 

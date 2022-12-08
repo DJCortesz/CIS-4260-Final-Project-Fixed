@@ -14,7 +14,7 @@
                 <td>
                   <a [routerLink]="[
                       '',
-                      { outlets: { courseDetails: ['courses', c.id] } }
+                      { outlets: { courseDetails: ['courses', c.id], sectionDetails: ['section'] } }
                     ]">
                     {{ c.number }}
                   </a>
@@ -31,6 +31,7 @@
         No courses found
       </div>
       <!-- End of no courses found error message -->
+
       <!-- begin footer -->
       <div class="footer-pagination">
         <div class="row">

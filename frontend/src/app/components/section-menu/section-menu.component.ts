@@ -25,8 +25,11 @@ export class SectionMenuComponent implements OnInit {
   }
 
   addSection() {
-    this.sectionService.addSection(2, 2022, "Fall", 1);
-    this.listCourseSections();
+    const section: number = parseInt((<HTMLSelectElement>document.getElementById('section')).value);
+    const year: number = parseInt((<HTMLSelectElement>document.getElementById('year')).value);
+    const semester: string = (<HTMLSelectElement>document.getElementById('semester')).value;
+    this.sectionService.addSection(section, year, semester, 1);
+    console.log(section + " ")
   }
 
   listCourseSections() {

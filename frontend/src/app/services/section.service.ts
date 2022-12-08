@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaderResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Section } from '../common/section';
 import { Observable } from 'rxjs';
@@ -18,6 +18,13 @@ export class SectionService {
     this.httpClient.post(newSectionUrl, null).subscribe((data) => {
       console.log("Successfully created a section.")
     })
+  }
+
+  deleteSection(section:number){
+    const newDeleteUrl = `http://localhost:8080/sections?number=${section}`;
+    this.httpClient.delete(newDeleteUrl, ).subscribe((data) =>{
+      console.log("Successfully deleted a section.")
+    });
   }
 
   getSections(): Observable<Section[]> {

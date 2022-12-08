@@ -29,7 +29,11 @@ export class SectionMenuComponent implements OnInit {
     const year: number = parseInt((<HTMLSelectElement>document.getElementById('year')).value);
     const semester: string = (<HTMLSelectElement>document.getElementById('semester')).value;
     this.sectionService.addSection(section, year, semester, 1);
-    console.log(section + " ")
+    console.log(section + ", " + year + ", " + semester + ", ");
+  }
+
+  deleteSection(section: number){
+    this.sectionService.deleteSection(section);
   }
 
   listCourseSections() {

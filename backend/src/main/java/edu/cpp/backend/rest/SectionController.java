@@ -34,19 +34,9 @@ public class SectionController {
         sectionRepository.save(section);
     }
 
-//    @GetMapping
-//    public void getAllSections(){
-//        sectionRepository.findAll();
-//    }
-
-
     // delete a Section record by course id and section number
-    @DeleteMapping("/courses/{courseId}/sections/{number}")
-    public ResponseEntity < ? > deleteCourse(@PathVariable(value = "courseId") int courseId,
-                                             @PathVariable(value = "number") int number) throws ResourceNotFoundException {
-        return sectionRepository.findByNumberAndCourseId(number, courseId).map(sec -> {
-            sectionRepository.delete(sec);
-            return ResponseEntity.ok().build();
-        }).orElseThrow(() -> new ResourceNotFoundException("Course not found with id " + courseId + " and section number " + number));
+    @DeleteMapping
+    public void deleteSection(@RequestParam("number") Long number){
+        sectionRepository.deleteById(number);
     }
 }

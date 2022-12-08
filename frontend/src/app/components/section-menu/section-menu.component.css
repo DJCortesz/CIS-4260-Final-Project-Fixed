@@ -9,3 +9,12 @@ th,
 td {
     border: 1px ridge black;
 }
+
+.section-button{
+    background-color: #ffb500;
+    border-color: #ffb500;
+}
+
+.section-button:hover{
+    background-color: #ffbf00;
+}

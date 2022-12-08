@@ -144,7 +144,7 @@ aside.menu-sidebar.d-none.d-lg-block.clr {
  */
 
 .header-desktop {
-  background: #0da8e4;
+  background: #1e4d2b;
   width: 1203px;
   -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.1);
@@ -295,15 +295,15 @@ input.au-input.au-input-xl {
   right: 0;
   min-width: 95px;
   color: #fff;
-  border: 1px solid #205b8d;
+  border: 1px solid #ffb500;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 43px;
-  background: #205b8d;
+  background: #ffb500;
 }
 
 .au-btn-submit:hover {
-  background: #05143f;
+  background: #ffbf00;
 }
 
 .au-btn-submit>i {

@@ -21,10 +21,10 @@
     </select>
 
 </div>
-<button id="add-button" (click)="addSection()" class="btn btn-primary btn-sm">Add</button>
+<button (click)="addSection()" class="btn btn-primary btn-sm section-button">Add</button>
 
 <nav class="navbar-sidebar">
-    <table *ngIf="sections?.length > 0">
+    <table class="section-details-table" *ngIf="sections?.length > 0">
         <thead>
             <th>Section</th>
             <th>Year</th>
@@ -35,6 +35,7 @@
                 <td>{{ s.number }} </td>
                 <td>{{ s.year }} </td>
                 <td>{{ s.semester }} </td>
+                <button class="btn btn-primary btn-sm section-button" (click)="deleteSection(s.number)">Delete</button>
             </tr>
         </tbody>
     </table>

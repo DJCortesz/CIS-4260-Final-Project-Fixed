@@ -22,3 +22,20 @@
 
 </div>
 <button id="add-button" (click)="addSection()" class="btn btn-primary btn-sm">Add</button>
+
+<nav class="navbar-sidebar">
+    <table *ngIf="sections?.length > 0">
+        <thead>
+            <th>Section</th>
+            <th>Year</th>
+            <th>Semester</th>
+        </thead>
+        <tbody *ngFor="let s of sections">
+            <tr>
+                <td>{{ s.number }} </td>
+                <td>{{ s.year }} </td>
+                <td>{{ s.semester }} </td>
+            </tr>
+        </tbody>
+    </table>
+</nav>

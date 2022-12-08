@@ -1,11 +1,15 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Section } from '../common/section';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SectionService {
+  private currentSectionsUrl: string = "http://localhost:8080/api/sections";
+
   constructor(private httpClient: HttpClient) { }
 
   addSection(section: number, year: number, semester: string, courseId: number) {
@@ -14,5 +18,18 @@ export class SectionService {
     this.httpClient.post(newSectionUrl, null).subscribe((data) => {
       console.log("Successfully created a section.")
     })
+  }
+
+  getSections(): Observable<Section[]> {
+    console.log(this.httpClient.get<GetResponseCourseSections>(this.currentSectionsUrl).pipe(
+      map(response => response._embedded.sections)));
+    return this.httpClient.get<GetResponseCourseSections>(this.currentSectionsUrl).pipe(
+      map(response => response._embedded.sections));
+  }
+}
+
+interface GetResponseCourseSections {
+  _embedded: {
+    sections: Section[];
   }
 }

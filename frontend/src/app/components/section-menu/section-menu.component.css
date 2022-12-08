@@ -1,0 +1,11 @@
+table {
+    width: 83%;
+    border-collapse: separate;
+    border-radius: 5px;
+}
+
+table,
+th,
+td {
+    border: 1px ridge black;
+}

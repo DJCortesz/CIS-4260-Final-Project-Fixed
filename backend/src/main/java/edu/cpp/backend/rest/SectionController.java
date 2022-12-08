@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping("/api/sections")
+@RequestMapping("/sections")
 public class SectionController {
     @Autowired
     private CourseRepository courseRepository;
@@ -33,6 +33,11 @@ public class SectionController {
 
         sectionRepository.save(section);
     }
+
+//    @GetMapping
+//    public void getAllSections(){
+//        sectionRepository.findAll();
+//    }
 
 
     // delete a Section record by course id and section number

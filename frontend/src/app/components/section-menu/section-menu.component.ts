@@ -20,7 +20,7 @@ export class SectionMenuComponent implements OnInit{
   ngOnInit():void {}
     
   addSection(){
-    this.sectionService.addSection(1, 2022, "Fall", 1);
+    this.sectionService.addSection(2, 2022, "Fall", 1);
   }
   // getSectionList(){
   //   this.route.paramMap.subscribe(
